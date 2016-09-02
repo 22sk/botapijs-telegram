@@ -153,7 +153,7 @@ globally.
 ```javascript
 const { defaults } = telegram22api;
 ```
-````javascript
+```javascript
 defaults.handlers
 ```
 
