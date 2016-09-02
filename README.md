@@ -188,9 +188,9 @@ https://yourbot.rhcloud.com/?url=https://api.telegram.org/bot123456:ABC-DEF1234g
 ## license
 [MIT](LICENSE)
 
-[bot22api]: (https://www.npmjs.com/package/bot22api)
-[botapijs]: (https://github.com/22sk/botapijs)
-[botapijs-docs]: (https://22sk.github.io/botapijs)
+[bot22api]: https://www.npmjs.com/package/bot22api
+[botapijs]: https://github.com/22sk/botapijs
+[botapijs-docs]: https://22sk.github.io/botapijs
 [Bot]: https://22sk.github.io/botapijs/Bot.html
 [Handler]: https://22sk.github.io/botapijs/Handler.html
 
