@@ -1,5 +1,5 @@
 # Framework for the Telegram Bot API
-See Telegram's [introduction](https://core.telegram.org/bots/) and
+see Telegram's [introduction](https://core.telegram.org/bots/) and
 [documentation](https://core.telegram.org/bots/api) for Telegram Bots
 
 [![npm](https://img.shields.io/npm/v/bot22api-telegram.svg?style=flat-square)](https://www.npmjs.com/package/bot22api-telegram)
@@ -8,6 +8,12 @@ See Telegram's [introduction](https://core.telegram.org/bots/) and
 [![GitHub stars](https://img.shields.io/github/stars/22sk/botapijs-telegram.svg?style=social&label=Star)](https://github.com/22sk/botapijs-telegram)
 
 Documentation: https://22sk.github.io/botapijs-telegram
+
+### Core
+
+This module is based on **[bot22api]**. If you want to create such bot for
+another bot API, you should use that instead, since this module contains
+Telegram-related features.
 
 ```javascript
 const telegram22api = require('bot22api-telegram');
@@ -182,6 +188,7 @@ https://yourbot.rhcloud.com/?url=https://api.telegram.org/bot123456:ABC-DEF1234g
 ## license
 [MIT](LICENSE)
 
+[bot22api]: (https://www.npmjs.com/package/bot22api)
 [botapijs]: (https://github.com/22sk/botapijs)
 [botapijs-docs]: (https://22sk.github.io/botapijs)
 [Bot]: https://22sk.github.io/botapijs/Bot.html
