@@ -1,6 +1,6 @@
 {
   "name": "bot22api-telegram",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Samuel Kaiser",
   "description": "Framework for Telegram's Bot API",
   "license": "MIT",
