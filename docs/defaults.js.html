@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>defaults.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Command.html">Command</a></li><li><a href="CommandSeparator.html">CommandSeparator</a></li><li><a href="Manual.html">Manual</a></li><li><a href="TelegramBot.html">TelegramBot</a><ul class='methods'><li data-type='method'><a href="TelegramBot.html#identify">identify</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-defaults.html">defaults</a></li><li><a href="module-escape.html">escape</a><ul class='methods'><li data-type='method'><a href="module-escape.html#.markdown">markdown</a></li></ul></li><li><a href="module-requires.html">requires</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">defaults.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Provides default values for Telegram Bots
+ * @module defaults
+ */
+
+const { Manual } = require('./manuals');
+const { Command } = require('./handlers');
+const { parsers } = require('bot22api');
+const camelCase = require('camelcase');
+
+/**
+ * Array of default handlers
+ * @type {Handler[]}
+ * @see  https://22sk.github.io/botapijs/Handler.html
+ */
+exports.handlers = [
+  new Command({
+    name: 'start',
+    options: {
+      message: 'Please change your startCommand handler message with a new ' +
+        'one by adding something like this to your code:\n' +
+        "`bot.handlers.startCommand.options.message = 'Hello friend!'`"
+    },
+    callable: (done, { data, processor, options }) => {
+      processor.send('sendMessage', {
+        chat_id: data.message.chat.id,
+        text: options.message,
+        parse_mode: 'Markdown'
+      }); done();
+    },
+    manual: new Manual({ description: 'Welcome!' }),
+    replaceable: true
+  }),
+
+  new Command({
+    name: 'help',
+    callable: (done, { data, params, processor,
+      handler: { options }, bot }) => {
+      // loop through every manual and add it to the message's text
+      if (params.command.args) {
+        const requestedCommand = params.command.args.trim().replace('/', '');
+        if (!bot.handlers[camelCase(requestedCommand, 'command')]) {
+          processor.send('sendMessage', {
+            chat_id: data.message.chat.id,
+            parse_mode: 'Markdown',
+            text: options.templates.notExist(requestedCommand)
+          });
+        } else {
+          processor.send('sendMessage', {
+            chat_id: data.message.chat.id,
+            parse_mode: 'Markdown',
+            text: options.templates.singleCommand(
+              bot.handlers[camelCase(requestedCommand, 'command')].manual)
+          });
+        }
+      } else {
+        const commands = [];
+        for (const key of Object.keys(bot.handlers)) {
+          if (bot.handlers[key] &amp;&amp; bot.handlers[key].manual) {
+            const manual = bot.handlers[key].manual;
+            commands.push(options.templates.command(manual));
+          }
+        }
+        const commandsText = options.templates.commands(...commands);
+        processor.send('sendMessage', {
+          chat_id: data.message.chat.id,
+          parse_mode: 'Markdown',
+          text: options.templates.body({
+            intro: options.templates.intro,
+            commands: commandsText
+          })
+        });
+      }
+      done();
+    },
+    options: {
+      templates: {
+        body: ({ intro, commands }) => `${intro}\n\n${commands}`,
+        intro: 'To get help for a specific command, use\n`/help &lt;command>`',
+        command: (manual) => {
+          let text = typeof manual.command === 'string'
+          ? `/${manual.command}`
+          : `/${manual.command.join(', /')}`;
+          if (manual.description) text += `: ${manual.description}`;
+          return text;
+        },
+        commands: (...commands) => commands.join('\n'),
+        notExist: (requestedCommand) => `The command /${requestedCommand} ` +
+          'does not exist!\n Consider executing /help to get a list of all ' +
+          'available commands. ;)',
+        singleCommand: (manual) => `/${manual.command} ` +
+          `\`${manual.syntax || ''}\`\n${manual.description || ''}\n\n` +
+          `${manual.explanation || ''}`
+      }
+    },
+    manual: new Manual({
+      description: 'Get help for commands',
+      syntax: '[&lt;command>]',
+      explanation: 'This command displays the help page for either all ' +
+        'commands or the detailed explanation of a single command by passing ' +
+        'the command name to the /help command, for example /help echo to ' +
+        'display the in-depth information of the help command.'
+    })
+  })
+];
+
+/**
+ * Default parser
+ * @type {Requirement}
+ */
+exports.parser = parsers.json;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Sep 02 2016 21:51:33 GMT+0200 (W. Europe Daylight Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
