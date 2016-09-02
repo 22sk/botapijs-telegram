@@ -198,4 +198,4 @@ https://yourbot.rhcloud.com/?url=https://api.telegram.org/bot123456:ABC-DEF1234g
 [Bot#register]: https://22sk.github.io/botapijs/Bot.html#register
 [Command]: https://22sk.github.io/botapijs-telegram/Command.html
 [Manual]: https://22sk.github.io/botapijs-telegram/Manual.html
-[defaults]: https://22sk.github.io/botapijs-telegram/defaults.html
+[defaults]: https://22sk.github.io/botapijs-telegram/module-defaults.html
