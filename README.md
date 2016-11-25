@@ -5,7 +5,7 @@ see Telegram's [introduction](https://core.telegram.org/bots/) and
 [![npm](https://img.shields.io/npm/v/bot22api-telegram.svg?style=flat-square)](https://www.npmjs.com/package/bot22api-telegram)
 [![npm](https://img.shields.io/npm/l/bot22api-telegram.svg?style=flat-square)](https://www.npmjs.com/package/bot22api-telegram)
 [![npm](https://img.shields.io/npm/dt/bot22api-telegram.svg?style=flat-square)](https://www.npmjs.com/package/bot22api-telegram)
-[![GitHub stars](https://img.shields.io/github/stars/22sk/botapijs-telegram.svg?style=social&label=Star)](https://github.com/sk22/botapijs-telegram)
+[![GitHub stars](https://img.shields.io/github/stars/sk22/botapijs-telegram.svg?style=social&label=Star)](https://github.com/sk22/botapijs-telegram)
 
 Documentation: https://sk22.github.io/botapijs-telegram
 
