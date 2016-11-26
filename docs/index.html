@@ -52,8 +52,8 @@
 <p><a href="https://www.npmjs.com/package/bot22api-telegram"><img src="https://img.shields.io/npm/v/bot22api-telegram.svg?style=flat-square" alt="npm"></a>
 <a href="https://www.npmjs.com/package/bot22api-telegram"><img src="https://img.shields.io/npm/l/bot22api-telegram.svg?style=flat-square" alt="npm"></a>
 <a href="https://www.npmjs.com/package/bot22api-telegram"><img src="https://img.shields.io/npm/dt/bot22api-telegram.svg?style=flat-square" alt="npm"></a>
-<a href="https://github.com/22sk/botapijs-telegram"><img src="https://img.shields.io/github/stars/22sk/botapijs-telegram.svg?style=social&amp;label=Star" alt="GitHub stars"></a></p>
-<p>Documentation: https://22sk.github.io/botapijs-telegram</p>
+<a href="https://github.com/sk22/botapijs-telegram"><img src="https://img.shields.io/github/stars/sk22/botapijs-telegram.svg?style=social&amp;label=Star" alt="GitHub stars"></a></p>
+<p>Documentation: https://sk22.github.io/botapijs-telegram</p>
 <h3>Core</h3><p>This module is based on <strong><a href="https://www.npmjs.com/package/bot22api">bot22api</a></strong>. If you want to create such bot for
 another bot API, you should use that instead, since this module contains
 Telegram-related features.</p>
@@ -92,26 +92,26 @@ bot.register(new Command('hello', (done, { processor, data }) => {
 
 
 bot.listen(3000, 'localhost');</code></pre><h2>installation</h2><pre class="prettyprint source"><code>npm install bot22api-telegram</code></pre><h2>getting started</h2><p>You should understand the module this Telegram-specified framework depends on,
-so I suggest reading this first: <a href="https://github.com/22sk/botapijs">botapijs</a>
-and its <a href="https://22sk.github.io/botapijs">Docs</a></p>
+so I suggest reading this first: <a href="https://github.com/sk22/botapijs">botapijs</a>
+and its <a href="https://sk22.github.io/botapijs">Docs</a></p>
 <p>So to get started, firstly require the module and define the classes.</p>
 <pre class="prettyprint source lang-javascript"><code>const telegram22api = require('bot22api-telegram');
 const { TelegramBot } = telegram22api;
 const { Command } = telegram22api.handlers;
-const { Manual } = telegram22api.manuals;</code></pre><h3>TelegramBot <sub><strong><a href="https://22sk.github.io/botapijs-telegram/TelegramBot.html">/docs/</a></strong></sub></h3><p>extends <strong>Bot</strong> <sub><strong><a href="https://22sk.github.io/botapijs/Bot.html">/docs/</a></strong></sub></p>
+const { Manual } = telegram22api.manuals;</code></pre><h3>TelegramBot <sub><strong><a href="https://sk22.github.io/botapijs-telegram/TelegramBot.html">/docs/</a></strong></sub></h3><p>extends <strong>Bot</strong> <sub><strong><a href="https://sk22.github.io/botapijs/Bot.html">/docs/</a></strong></sub></p>
 <p>To create a new Telegram bot, call its constructor.</p>
 <pre class="prettyprint source lang-javascript"><code>const bot = new TelegramBot({
   token: '123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11',
 });</code></pre><p>Now that you have a Bot object, you need to register so-called Handlers using
 the Bot's register method. Each Callable (Handler or Requirement) must have a
-unique name. Read more <a href="https://github.com/22sk/botapijs">here</a>.</p>
-<h4>Bot#register <sub><a href="https://22sk.github.io/botapijs/Bot.html#register">/docs/</a></sub></h4><pre class="prettyprint source lang-javascript"><code>bot.register(handler);</code></pre><h3>Command <sub><a href="https://22sk.github.io/botapijs-telegram/Command.html">/docs/</a></sub></h3><p>extends <strong>Handler</strong> <sub><strong><a href="https://22sk.github.io/botapijs/Handler.html">/docs/</a></strong></sub></p>
+unique name. Read more <a href="https://github.com/sk22/botapijs">here</a>.</p>
+<h4>Bot#register <sub><a href="https://sk22.github.io/botapijs/Bot.html#register">/docs/</a></sub></h4><pre class="prettyprint source lang-javascript"><code>bot.register(handler);</code></pre><h3>Command <sub><a href="https://sk22.github.io/botapijs-telegram/Command.html">/docs/</a></sub></h3><p>extends <strong>Handler</strong> <sub><strong><a href="https://sk22.github.io/botapijs/Handler.html">/docs/</a></strong></sub></p>
 <p>Command is a special Handler that was made to handle only a specific command.
 It automatically requires preset Requirements that make sure the message's
 command equals the Command Handler's command. It also seperates the message to
 multiple pieces that can be accessed using <code>params.command</code>. Read more about
 Requirement params
-<a href="https://22sk.github.io/botapijs/Requirement.html#~done">here</a>.</p>
+<a href="https://sk22.github.io/botapijs/Requirement.html#~done">here</a>.</p>
 <pre class="prettyprint source lang-javascript"><code>bot.register(new Command({
   name: 'echo',
   callable: (done, { data, processor, params }) => {
@@ -127,15 +127,15 @@ Requirement params
     explanation: 'Prints whatever you tell this command.',
     syntax: '&lt;squee>'
   })
-}));</code></pre><h3>Manual <sub><a href="https://22sk.github.io/botapijs-telegram/Manual.html">/docs/</a></sub></h3><p>The Manual class was made to use with the Command class. Every Command has an
+}));</code></pre><h3>Manual <sub><a href="https://sk22.github.io/botapijs-telegram/Manual.html">/docs/</a></sub></h3><p>The Manual class was made to use with the Command class. Every Command has an
 own documentation in terms of a Manual object. It is used to generate the help
-page by the <a href="https://22sk.github.io/botapijs-telegram/module-defaults.html">default</a> command <code>/help</code>.</p>
+page by the <a href="https://sk22.github.io/botapijs-telegram/module-defaults.html">default</a> command <code>/help</code>.</p>
 <pre class="prettyprint source lang-javascript"><code>Manual {
   command: string,     // e.g. 'echo'
   syntax: string,      // e.g. '&lt;text>'
   description: string, // e.g. 'Echoes text'
   explanation: string, // a longer text that explains the Command
-}</code></pre><h3>Defaults <sub><a href="https://22sk.github.io/botapijs-telegram/module-defaults.html">/docs/</a></sub></h3><p>Different from the original <a href="https://github.com/22sk/botapijs">botapijs</a> module, there are some default Commands
+}</code></pre><h3>Defaults <sub><a href="https://sk22.github.io/botapijs-telegram/module-defaults.html">/docs/</a></sub></h3><p>Different from the original <a href="https://github.com/sk22/botapijs">botapijs</a> module, there are some default Commands
 registered to your TelegramBot object.</p>
 <p>Note that both defaults have an options object so there are fully configurable.
 To do so, edit the Commands' options.</p>

@@ -101,7 +101,7 @@ It automatically requires preset Requirements that make sure the message's
 command equals the Command Handler's command. It also seperates the message to
 multiple pieces that can be accessed using `params.command`. Read more about
 Requirement params
-[here](https://22sk.github.io/botapijs/Requirement.html#~done).
+[here](https://sk22.github.io/botapijs/Requirement.html#~done).
 
 ```javascript
 bot.register(new Command({
@@ -189,13 +189,13 @@ https://yourbot.rhcloud.com/?url=https://api.telegram.org/bot123456:ABC-DEF1234g
 [MIT](LICENSE)
 
 [bot22api]: https://www.npmjs.com/package/bot22api
-[botapijs]: https://github.com/22sk/botapijs
-[botapijs-docs]: https://22sk.github.io/botapijs
-[Bot]: https://22sk.github.io/botapijs/Bot.html
-[Handler]: https://22sk.github.io/botapijs/Handler.html
+[botapijs]: https://github.com/sk22/botapijs
+[botapijs-docs]: https://sk22.github.io/botapijs
+[Bot]: https://sk22.github.io/botapijs/Bot.html
+[Handler]: https://sk22.github.io/botapijs/Handler.html
 
-[TelegramBot]: https://22sk.github.io/botapijs-telegram/TelegramBot.html
-[Bot#register]: https://22sk.github.io/botapijs/Bot.html#register
-[Command]: https://22sk.github.io/botapijs-telegram/Command.html
-[Manual]: https://22sk.github.io/botapijs-telegram/Manual.html
-[defaults]: https://22sk.github.io/botapijs-telegram/module-defaults.html
+[TelegramBot]: https://sk22.github.io/botapijs-telegram/TelegramBot.html
+[Bot#register]: https://sk22.github.io/botapijs/Bot.html#register
+[Command]: https://sk22.github.io/botapijs-telegram/Command.html
+[Manual]: https://sk22.github.io/botapijs-telegram/Manual.html
+[defaults]: https://sk22.github.io/botapijs-telegram/module-defaults.html

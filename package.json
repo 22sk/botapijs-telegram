@@ -4,7 +4,7 @@
   "author": "Samuel Kaiser",
   "description": "Framework for Telegram's Bot API",
   "license": "MIT",
-  "repository": "22sk/botapijs-telegram",
+  "repository": "sk22/botapijs-telegram",
   "scripts": {
     "test": "./node_modules/.bin/mocha ./test",
     "doc": "./node_modules/.bin/jsdoc --readme README.md -c .jsdoc.json -r -d docs lib"
